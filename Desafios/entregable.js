@@ -41,16 +41,16 @@ class ProductManager {
     generateId() {
       let id;
       do {
-        id = Math.random().toString(36).substr(2, 9); // Genera un ID aleatorio
+        id = Math.random().toString(36).substr(2, 9); 
       } while (this.products.some((p) => p.id === id));
       return id;
     }
   }
   
-  // Crear una instancia de ProductManager
+
   const manager = new ProductManager();
   
-  // Obtener la lista de productos (debería estar vacía)
+
   console.log('Productos iniciales:', manager.getProducts());
   
   // Agregar un producto
@@ -65,10 +65,10 @@ class ProductManager {
   const addedProduct = manager.addProduct(newProduct);
   console.log('Producto agregado:', addedProduct);
   
-  // Obtener la lista de productos nuevamente
+
   console.log('Productos después de agregar uno:', manager.getProducts());
   
-  // Obtener un producto por ID
+
   const productIdToFind = addedProduct.id;
   try {
     const foundProduct = manager.getProductById(productIdToFind);
@@ -77,11 +77,11 @@ class ProductManager {
     console.error(error.message);
   }
   
-  // Actualizar un producto
+
   const updatedData = { title: 'Producto Actualizado' };
   manager.updateProduct(productIdToFind, updatedData);
   console.log('Producto actualizado:', manager.getProductById(productIdToFind));
   
-  // Eliminar un producto
+
   manager.deleteProduct(productIdToFind);
   console.log('Productos después de eliminar uno:', manager.getProducts());
